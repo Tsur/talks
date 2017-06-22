@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Js Runetime - Training Session</title>
+    <link href="https://fonts.googleapis.com/css?family=Bubbler+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+    <section class="slide" data-id="0">
+      <p class="title">
+        <span class="pre-rotate">Javascript Run</span>
+        <span class="rotate-prev">e</span>
+        <span class="rotate">e</span>
+        <span class="post-rotate-prev">Time</span>
+        <span class="post-rotate not-visible">Time</span>
+      </p>
+      <p class="subtitle">a Javascript "RuneTime" Initiation Ceremony ...</p>
+      <div class="">
+        <img class="poster" src="rune.png" alt="rune">
+        <!-- <img src="gandalf.gif" alt="gandalf"> -->
+      </div>
+    </section>
+    <section class="slide not-visible" data-id="1">
+      <p class="title">Javascript RunTime</p>
+      <!-- <div class="">
+        <img src="magic.gif" alt="magic">
+      </div> -->
+      <p class="section"></p>
+      <p class="section small">This is a very <span class="highlight">technical</span> talk</p>
+      <p class="section"></p>
+      <div class="">
+        <p class="section">* Javascript Runtime Basics</p>
+        <p class="section">* Live demo</p>
+      </div>
+      <p class="section"></p>
+      <!-- <p class="section"></p> -->
+    </section>
+    <section class="slide not-visible" data-id="2">
+      <p class="title">Javascript RunTime</p>
+      <p class="section"></p>
+      <p class="section">The container</p>
+      <p class="section"></p>
+      <div class="">
+        <img src="container.png" alt="container">
+      </div>
+      <!-- <p class="section">* The JS Engine: parse and translate the code into machine-executable operations</p> -->
+      <!-- <p class="section">* The JS Runtime: provides the built-in APIS that are available by default to your code</p> -->
+      <!-- <p class="section"></p> -->
+    </section>
+    <section class="slide not-visible" data-id="3">
+      <p class="title">Javascript RunTime</p>
+      <div class="">
+        <img src="magic.gif" alt="magic">
+      </div>
+      <p class="section"></p>
+      <p class="section">LIVE DEMO</p>
+      <p class="section">LETS PLAY AROUND WITH MAGIC RUNES</p>
+      <p class="section"></p>
+    </section>
+    <p class="credit">Made ♥ Zuri Pabon</p>
+    <script type="text/javascript">
+      let current = 0;
+      function animate(){
+        document.querySelector('.rotate-prev').classList.add('not-visible');
+        document.querySelector('.post-rotate-prev').classList.add('not-visible');
+        document.querySelector('.post-rotate').classList.remove('not-visible');
+        document.querySelector('.rotate').classList.add('rotate-anim');
+        document.querySelector('.post-rotate').classList.add('post-rotate-anim');
+      }
+      function nextSlide(){
+        const maxSlides = document.querySelectorAll(`.slide`).length;
+        if(current >= maxSlides) return;
+        document.querySelector(`.slide[data-id='${current}']`).classList.add('not-visible');
+        document.querySelector(`.slide[data-id='${current+1}']`).classList.remove('not-visible');
+        current++;
+      }
+      function prevSlide(){
+        if(current <= 0) return;
+        document.querySelector(`.slide[data-id='${current}']`).classList.add('not-visible');
+        document.querySelector(`.slide[data-id='${current-1}']`).classList.remove('not-visible');
+        current--;
+      }
+      // document.addEventListener('click', animate);
+      document.addEventListener('keyup', event => {
+        switch (event.code) {
+          case "ArrowRight":
+            nextSlide();
+            break;
+          case "ArrowLeft":
+            prevSlide();
+            break;
+          case "KeyA":
+            animate();
+            break;
+          default:
+        }
+      })
+    </script>
+  </body>
+</html>

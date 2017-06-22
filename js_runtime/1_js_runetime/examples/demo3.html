@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Js Runetime - non bloking demo</title>
+    <link href="https://fonts.googleapis.com/css?family=Bubbler+One" rel="stylesheet">
+    <style media="screen">
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      .center {
+        width: 400px;
+        heigh: 400px;
+        top: 50%;
+        left: 50%;
+        margin-top: -200px;
+        margin-left: -200px;
+        position: absolute;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.4);
+        font: 700 1.2rem 'Roboto Slab', sans-serif;
+      }
+      .center .title {
+        font-family: 'Bubbler One', sans-serif;
+      }
+      .draw-border {
+        box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.4);
+        color: rgba(255, 255, 255, 0.4);
+        -webkit-transition: color 0.25s 0.08333s;
+        transition: color 0.25s 0.08333s;
+        position: relative;
+      }
+      .draw-border::before, .draw-border::after {
+        border: 0 solid transparent;
+        box-sizing: border-box;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 0;
+        right: 0;
+      }
+      .draw-border::before {
+        border-bottom-width: 4px;
+        border-left-width: 4px;
+      }
+      .draw-border::after {
+        border-top-width: 4px;
+        border-right-width: 4px;
+      }
+      .draw-border:hover {
+        color: #ce576c;
+      }
+      .draw-border:hover::before, .draw-border:hover::after {
+        border-color: #ce576c;
+        -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+        transition: border-color 0s, width 0.25s, height 0.25s;
+        width: 100%;
+        height: 100%;
+      }
+      .draw-border:hover::before {
+        -webkit-transition-delay: 0s, 0s, 0.25s;
+                transition-delay: 0s, 0s, 0.25s;
+      }
+      .draw-border:hover::after {
+        -webkit-transition-delay: 0s, 0.25s, 0s;
+                transition-delay: 0s, 0.25s, 0s;
+      }
+      .btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        line-height: 1.5;
+        font: 700 1.2rem 'Roboto Slab', sans-serif;
+        padding: 1em 2em;
+        letter-spacing: 0.05rem;
+        user-select: none;
+      }
+      .btn:focus {
+        outline: none;
+      }
+      .btn-container {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="center">
+      <h1 class="title">A Blocking Example</h1>
+      <div class="btn-container">
+        <button id="btn1" class="btn draw-border" type="button" name="button">What date is ? (Blocking)</button>
+        <p id="date"></p>
+      </div>
+      <div class="btn-container">
+        <button id="btn2" class="btn draw-border" type="button" name="button">What time is?</button>
+        <p id="time"></p>
+      </div>
+    </section>
+    <script type="text/javascript">
+      function sleepSync(){
+        setTimeout(()=>{
+          const d = new Date();
+          document.querySelector('#date').textContent = `${d.toLocaleDateString()}`;
+        }, 3000);
+      }
+      function displayDate(){
+        const d = new Date();
+        document.querySelector('#time').textContent = `${d.toLocaleTimeString()}.${d.getMilliseconds()}`;
+      }
+      document.querySelector('#btn1').addEventListener('click', sleepSync);
+      document.querySelector('#btn2').addEventListener('click', displayDate);
+    </script>
+  </body>
+</html>
