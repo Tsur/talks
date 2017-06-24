@@ -94,7 +94,7 @@
     <section class="center">
       <h1 class="title">A Blocking Example</h1>
       <div class="btn-container">
-        <button id="btn1" class="btn draw-border" type="button" name="button">What date is ? (Blocking)</button>
+        <button id="btn1" class="btn draw-border" type="button" name="button">What's the weather ?</button>
         <p id="date"></p>
       </div>
       <div class="btn-container">
@@ -105,8 +105,7 @@
     <script type="text/javascript">
       function sleepSync(){
         for(let i=0;i<1e9*2;i++);
-        const d = new Date();
-        document.querySelector('#date').textContent = `${d.toLocaleDateString()}`;
+        document.querySelector('#date').textContent = `Sunny 🌞`;
       }
       function displayDate(){
         const d = new Date();
