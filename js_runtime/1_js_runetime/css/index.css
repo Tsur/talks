@@ -15,7 +15,7 @@ html, body {
   justify-content: center;
 }
 
-.title {
+.title, .title-anim {
   font-size: 80px;
   color: rgba(255, 255, 255, 0.5);
   font-family: 'Bubbler One', sans-serif;
@@ -24,7 +24,10 @@ html, body {
   margin: 100px 0 20px 0;
   text-shadow: 0px -1px 0px;
 }
-
+.title-anim {
+  position: relative;
+  left: -6px;
+}
 .poster {
   width: 250px;
   height: 250px;
@@ -64,14 +67,37 @@ html, body {
 .section .highlight {
   border-bottom: 1px dotted grey;
 }
-/*.poster2 {
-  width: 70px;
-  position: relative;
-  left: 10px;
-  top: 10px;
-}*/
-
-
+.section .img {
+  text-align: center;
+}
+a.link {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Bubbler One', sans-serif;
+  font-size: 30px;
+  text-decoration: none;
+}
+pre {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 37px;
+  padding: 0;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+pre code{
+  vertical-align: -webkit-baseline-middle;
+}
+pre .fn {
+  color: #8048a2;
+}
+pre .str {
+  color: #99a248;
+}
+pre .fn-name {
+  color: #487da2;
+}
+pre .fn-native {
+  color: #4b8161;
+}
 .pre-rotate{
 	position: relative;
   left: 15px;

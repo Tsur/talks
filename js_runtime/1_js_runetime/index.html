@@ -8,13 +8,7 @@
   </head>
   <body>
     <section class="slide" data-id="0">
-      <p class="title">
-        <span class="pre-rotate">Javascript Run</span>
-        <span class="rotate-prev">e</span>
-        <span class="rotate">e</span>
-        <span class="post-rotate-prev">Time</span>
-        <span class="post-rotate not-visible">Time</span>
-      </p>
+      <p class="title">Javascript RuneTime</p>
       <p class="subtitle">a Javascript "RuneTime" Initiation Ceremony ...</p>
       <div class="">
         <img class="poster" src="rune.png" alt="rune">
@@ -22,7 +16,7 @@
       </div>
     </section>
     <section class="slide not-visible" data-id="1">
-      <p class="title">Javascript RunTime</p>
+      <p class="title">Javascript RuneTime</p>
       <!-- <div class="">
         <img src="magic.gif" alt="magic">
       </div> -->
@@ -37,10 +31,9 @@
       <!-- <p class="section"></p> -->
     </section>
     <section class="slide not-visible" data-id="2">
-      <p class="title">Javascript RunTime</p>
+      <p class="title">Javascript RuneTime</p>
       <p class="section"></p>
       <p class="section">The container</p>
-      <p class="section"></p>
       <div class="">
         <img src="container.png" alt="container">
       </div>
@@ -49,14 +42,97 @@
       <!-- <p class="section"></p> -->
     </section>
     <section class="slide not-visible" data-id="3">
-      <p class="title">Javascript RunTime</p>
+      <p class="title">Javascript RuneTime</p>
+      <p class="section"></p>
+      <p class="section">Let's play around!</p>
       <div class="">
         <img src="magic.gif" alt="magic">
       </div>
+    </section>
+    <section class="slide not-visible" data-id="4">
+      <p class="title">Javascript RuneTime</p>
       <p class="section"></p>
-      <p class="section">LIVE DEMO</p>
-      <p class="section">LETS PLAY AROUND WITH MAGIC RUNES</p>
+      <p class="section">The container</p>
+      <div class="">
+        <img src="container.png" alt="container">
+      </div>
+    </section>
+    <section class="slide not-visible" data-id="5">
+      <p class="title">Javascript RuneTime</p>
       <p class="section"></p>
+      <p class="section">The DOM api requires a rendering logic ...</p>
+      <div class="">
+        <img src="container_dom.png" alt="container">
+      </div>
+    </section>
+    <section class="slide not-visible" data-id="6">
+      <p class="title">Javascript RuneTime</p>
+      <p class="section"></p>
+      <p class="section">XMLHTTPRequest api requires a non blocking logic ...</p>
+      <div class="">
+        <img src="container_blocking.png" alt="container">
+      </div>
+    </section>
+    <section class="slide not-visible" data-id="7">
+      <p class="title">Javascript RuneTime</p>
+      <p class="section"></p>
+      <p class="section">... STILL TASTING IT ?...</p>
+      <div class="img">
+        <img src="confused.gif" alt="magic">
+      </div>
+      <!-- <p class="section">Let's run some examples</p> -->
+    </section>
+    <section class="slide not-visible" data-id="8">
+      <p class="title">Javascript RuneTime</p>
+      <pre><code>      <span class="fn">function</span> <span class="fn-name">hello</span>(){ <span class="fn">return</span> <span class="str">"Hello"</span>; }
+      <span class="fn">function</span> <span class="fn-name">world</span>(){ <span class="fn">return</span> <span class="str">"World"</span>; }
+      <span class="fn">function</span> <span class="fn-name">helloWorld</span>(){ <span class="fn">return</span> <span class="fn-name">hello</span>() + <span class="fn-name">world</span>(); }
+      <span class="fn-native">console.log</span>(<span class="fn-name">helloWorld</span>());
+      </code>
+      </pre>
+      <a class="link" target="_blank" href="examples/demo1.html">Call Stack Demo</a>
+    </section>
+    <section class="slide not-visible" data-id="9">
+      <p class="title">Javascript RuneTime</p>
+      <pre><code>      <span class="fn">function</span> <span class="fn-name">hello</span>(){ <span class="fn">return</span> <span class="str">"Hello"</span>; }
+      <span class="fn">function</span> <span class="fn-name">world</span>(){ <span class="fn">return</span> <span class="str">"World"</span>; }
+      <span class="fn">function</span> <span class="fn-name">helloWorld</span>(){ <span class="fn">return</span> <span class="fn-name">hello</span>() + <span class="fn-name">world</span>(); }
+      <span class="fn-native">sleep</span>(<span class="str">5</span>);
+      <span class="fn-native">console.log</span>(<span class="fn-name">helloWorld</span>());
+      </code>
+      </pre>
+      <a class="link" target="_blank" href="examples/demo2.html">Blocking Demo</a>
+    </section>
+    <section class="slide not-visible" data-id="10">
+      <p class="title">Javascript RuneTime</p>
+      <pre><code>      <span class="fn">function</span> <span class="fn-name">hello</span>(){ <span class="fn">return</span> <span class="str">"Hello"</span>; }
+      <span class="fn">function</span> <span class="fn-name">world</span>(){ <span class="fn">return</span> <span class="str">"World"</span>; }
+      <span class="fn">function</span> <span class="fn-name">helloWorld</span>(){ <span class="fn">return</span> <span class="fn-name">hello</span>() + <span class="fn-name">world</span>(); }
+      <span class="fn">function</span> <span class="fn-name">callback</span>(){ <span class="fn-native">console.log</span>(<span class="fn-name">helloWorld</span>()); }
+      <span class="fn-native">sleep</span>(<span class="str">5</span>, <span class="fn-name">callback</span>);
+      </code>
+        </pre>
+      <a class="link" target="_blank" href="examples/demo3.html">Non Blocking Demo</a>
+    </section>
+    <section class="slide not-visible" data-id="11">
+      <p class="title-anim">
+        <span class="pre-rotate">Javascript Run</span>
+        <span class="rotate-prev">e</span>
+        <span class="rotate">e</span>
+        <span class="post-rotate-prev">Time</span>
+        <span class="post-rotate not-visible">Time</span>
+      </p>
+      <p class="section"></p>
+    </section>
+    <section class="slide not-visible" data-id="12">
+      <p class="title">Javascript RunTime</p>
+      <p class="section"></p>
+      <p class="section">La magia consiste en entenderlo. El milagro, en hacerlo.</p>
+      <p class="section"></p>
+      <div class="">
+        <img src="thanks.gif" alt="magic">
+      </div>
+      <!-- <p class="section">¡ Gracias !</p> -->
     </section>
     <p class="credit">Made ♥ Zuri Pabon</p>
     <script type="text/javascript">
@@ -69,7 +145,7 @@
         document.querySelector('.post-rotate').classList.add('post-rotate-anim');
       }
       function nextSlide(){
-        const maxSlides = document.querySelectorAll(`.slide`).length;
+        const maxSlides = document.querySelectorAll(`.slide`).length-1;
         if(current >= maxSlides) return;
         document.querySelector(`.slide[data-id='${current}']`).classList.add('not-visible');
         document.querySelector(`.slide[data-id='${current+1}']`).classList.remove('not-visible');

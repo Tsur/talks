@@ -12,6 +12,6 @@ function helloWorld(){
 
 console.log('Printing in 10 second');
 
-sleep(5, function(){
+setTimeout(function(){
   console.log(helloWorld());
-});
+}, 1e4);
