@@ -13,6 +13,8 @@ Teaching is a great, transforming experience we should all try at least once in 
 
   Text: https://github.com/Tsur/talks/blob/master/js_runtime/1_js_runetime/transcript.md
 
+  Demos: https://github.com/Tsur/talks/tree/master/js_runtime/1_js_runetime/examples
+
   Resources: https://github.com/Tsur/talks/tree/master/js_runtime/1_js_runetime
 
   Level: Easy
