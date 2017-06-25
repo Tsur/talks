@@ -2,11 +2,10 @@ First Training Session on the Javascript Runtime
 
 Title: The Javascript Runetime
 Description: This will be an introduction to the Javascript Runtime.
-Resources: https://gist.github.com/Tsur/ca0c4e97d703d6cbef2b42d5b4e2cb1c
+Resources: https://github.com/Tsur/talks/tree/master/js_runtime/1_js_runetime
 Program: Javascript Introduction - Javascript Runtime Concepts - Live Demos
-Contents: Summary
 
-Coming next: Contents ...
+Coming next ...
 
 * History
 * Call Stack
@@ -19,10 +18,10 @@ Coming next: Contents ...
 * Next
 
 --------------------------------------------------------------------------------
-- Abstract
+Abstract
 --------------------------------------------------------------------------------
 
-Before we start talking about the JavaScript Runtime Environment, we first need to understand (what is Javascript Engine and even before that, we need to know) what Javascript itself is, so let's cover the basics.
+Before we start talking about the JavaScript Runtime Environment, we first need to understand what Javascript itself is, so let's cover the basics.
 
 Unlike other programming languages such as C, Go, or C#, Javascript is a programming language that runs within a container, say a program that reads and run the javascript code for you, rather than letting the CPU, GPU, the hardware, to do it for you like in those languages I did mention before. In other words, Javascript is an interpreted programming language, so the container it runs in is able to interpret, to understand, to read the code and therefore to run it.
 
@@ -36,8 +35,8 @@ The runtime is to the engine what the linker is to the compiler in a traditional
 
 So for example we have the Chrome Container and de NodeJs Container. Both of them use the same JavaScript Engine named V8 but they both have different Javascript runtime environments. In Chrome your program have access to built-in libraries such as the Window and the DOM APIs, while in Nodejs you have the FileSystem, the Net or the Crypto APIs. Both runtimes include the built-in data types and common libraries such as the Console API.
 
-DEMO, compile V8 shell and use it.
-DEMO, go to browser, go to node
+DEMO, go to browser, go to nodejs
+DEMO, build our own container from scratch, compile V8 shell and use it.
 
 from ubuntu bash download depot-tools and follow steps
 1) http://dev.chromium.org/developers/how-tos/install-depot-tools

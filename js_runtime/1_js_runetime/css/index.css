@@ -32,11 +32,14 @@ html, body {
   width: 250px;
   height: 250px;
 }
-
+.twitter {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
 .credit {
   color: rgba(255, 255, 255, 0.5);
   position: absolute;
-  left: calc(50% - 50px);
+  left: calc(50% - 90px);
   bottom: 50px;
 }
 .not-visible {
