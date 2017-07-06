@@ -45,6 +45,9 @@ html, body {
 .not-visible {
   display: none;
 }
+.not-cursor {
+  cursor: none;
+}
 .post-rotate-prev {
   margin-left: 30px;
 }

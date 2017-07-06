@@ -43,7 +43,8 @@ from ubuntu bash download depot-tools and follow steps
 2) https://github.com/v8/v8/wiki/Building-from-Source
 
 Note: if using ubuntu bash and going to step 2 without doing step 1, remember to run
-export PATH=`pwd`/depot_tools:"$PATH"
+export PATH=`pwd`/depot_tools:"$PATH" && cd v8/v8 && ninja -C out.gn/x64.release
+Then run it as  ./out.gn/x64.release/v8_shell
 
 Move to v8/out.gn/x64.release and run ./v8_shell.
 The full featured shell is called d8

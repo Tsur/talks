@@ -18,3 +18,5 @@ Teaching is a great, transforming experience we should all try at least once in 
   Resources: https://github.com/Tsur/talks/tree/master/js_runtime/1_js_runetime
 
   Level: Easy
+
+  Length: 45 minutes aprox. (no QA included)
