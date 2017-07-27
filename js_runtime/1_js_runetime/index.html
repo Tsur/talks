@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/index.css">
   </head>
   <body>
-    <section class="slide" data-id="0">
+    <section class="slide">
       <p class="title">Javascript RuneTime</p>
       <p class="subtitle">a Javascript "RuneTime" Initiation Ceremony ...</p>
       <div class="">
@@ -15,7 +15,7 @@
         <!-- <img src="gandalf.gif" alt="gandalf"> -->
       </div>
     </section>
-    <section class="slide not-visible" data-id="1">
+    <section class="slide not-visible">
       <p class="title">Javascript RuneTime</p>
       <!-- <div class="">
         <img src="magic.gif" alt="magic">
@@ -30,7 +30,7 @@
       <p class="section"></p>
       <!-- <p class="section"></p> -->
     </section>
-    <section class="slide not-visible" data-id="2">
+    <section class="slide not-visible">
       <p class="title">Javascript RuneTime</p>
       <p class="section"></p>
       <p class="section">The container</p>
@@ -41,7 +41,7 @@
       <!-- <p class="section">* The JS Runtime: provides the built-in APIS that are available by default to your code</p> -->
       <!-- <p class="section"></p> -->
     </section>
-    <section class="slide not-visible" data-id="3">
+    <section class="slide not-visible">
       <p class="title">Javascript RuneTime</p>
       <p class="section"></p>
       <p class="section">Let's play around!</p>
@@ -49,7 +49,208 @@
         <img src="magic.gif" alt="magic">
       </div>
     </section>
-    <section class="slide not-visible" data-id="4">
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+
+          <span class="fn">using namespace std;</span>
+
+          <span class="fn-native">int</span> <span class="fn">main</span>(int argc, char* argv[]) {
+            <span class="fn-native">fprintf</span>(stderr, <span class="fn-native">"My JavaScript Container, a simple repl shell\n"</span>);
+            <span class="fn">runREPL</span>();
+            <span class="fn-name">return</span> 0;
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          <span class="fn-native">// read-eval-print loop</span>
+          void <span class="fn">runREPL</span>() {
+            <span class="fn-native">while</span> (<span class="fn">true</span>) {
+              <span class="fn-native">string</span> codeToBeEvaluated = <span class="fn">readUserInput</span>();
+              <span class="fn-native">string</span> codeEvaluated = <span class="fn">evaluateCode</span>(codeToBeEvaluated);
+              <span class="fn">print</span>(codeEvaluated);
+            }
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          <span class="fn-native">string</span> <span class="fn">readUserInput</span>() {
+            <span class="fn-native">static const int</span> kBufferSize = 256;
+            <span class="fn-native">char</span> buffer[kBufferSize];
+            <span class="fn">fprintf</span>(stderr, <span class="fn-native">"> "</span>);
+            <span class="fn-native">const char*</span> input = <span class="fn">fgets</span>(buffer, kBufferSize, stdin);
+            <span class="fn-native">string</span> <span class="fn">userInputString</span>(input);
+            <span class="fn-name">return</span> userInputString;
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          void <span class="fn">print</span>(<span class="fn-native">string</span> str){
+            <span class="fn">printf</span>("%s\n", str.<span class="fn-native">c_str</span>());
+          }
+
+          <span class="fn-native">string</span> <span class="fn">evaluateCode</span>(<span class="fn-native">string</span> codeToBeEvaluated) {
+            <span class="fn-name">return</span> codeToBeEvaluated;
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          <span class="fn-native">int</span> <span class="fn">main</span>(int argc, char* argv[]) {
+            <span class="fn">fprintf</span>(stderr, <span class="fn-native">"My JavaScript Container, a simple repl shell (V8 version %s)\n"</span>,
+              <span class="fn">V8::GetVersion</span>());
+            <span class="fn-native">// Init V8 Isolate Instance</span>
+            <span class="fn">Isolate</span>* isolate = initV8(argc, argv);
+            ...
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          <span class="fn-native">int</span> <span class="fn">main</span>(int argc, char* argv[]) {
+            ...
+            <span class="fn-native">// Create JS Runtime</span>
+            <span class="fn">Local&lt;Context&gt;</span> runtime = <span class="fn">createRuntimeContext</span>(isolate);
+            <span class="fn">runREPL</span>(runtime);
+            ...
+            <span class="fn-name">return</span> 0;
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          <span class="fn">Local&lt;Context&gt;</span> <span class="fn">createRuntimeContext</span>(Isolate* isolate) {
+            <span class="fn-native">// Create a template for the global object.</span>
+            <span class="fn">Local&lt;ObjectTemplate&gt;</span> global = <span class="fn">ObjectTemplate::New</span>(isolate);
+            <span class="fn-native">// Bind the 'quit' function</span>
+            global-><span class="fn">Set</span>(String::NewFromUtf8(
+                            isolate, <span class="fn-native">"quit"</span>, NewStringType::kNormal).ToLocalChecked(),
+                        <span class="fn">FunctionTemplate::New</span>(isolate, <span class="fn-native">quit</span>));
+            <span class="fn-name">return</span> <span class="fn">Context::New</span>(isolate, NULL, global);
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          void <span class="fn">quit</span>(const <span class="fn">FunctionCallbackInfo&lt;Value&gt;</span>& args) {
+            <span class="fn-native">// If not arguments are given args[0] will yield undefined which</span>
+            <span class="fn-native">// converts to the integer value 0.</span>
+            <span class="fn-native">int</span> exit_code =
+                args[0]-><span class="fn">Int32Value</span>(args.<span class="fn">GetIsolate</span>()-><span class="fn">GetCurrentContext</span>()).<span class="fn">FromMaybe</span>(0);
+            <span class="fn">fflush</span>(stdout);
+            <span class="fn">fflush</span>(stderr);
+            <span class="fn">exit</span>(exit_code);
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          <span class="fn-native">// read-eval-print loop</span>
+          void <span class="fn">runREPL</span>(<span class="fn">Local&lt;Context&gt;</span> runtime) {
+            <span class="fn-native">while</span> (<span class="fn">true</span>) {
+              <span class="fn-native">string</span> codeToBeEvaluated = <span class="fn">readUserInput</span>();
+              <span class="fn-native">string</span> codeEvaluated = <span class="fn">evaluateCode</span>(runtime, codeToBeEvaluated);
+              <span class="fn">print</span>(codeEvaluated);
+            }
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          <span class="fn-native">string</span> <span class="fn">evaluateCode</span>(<span class="fn">Local&lt;Context&gt;</span> runtime, <span class="fn-native">string</span> sourceCode) {
+            <span class="fn-native">// Store compiled code in scriptCompiled</span>
+            <span class="fn">Local&lt;Script&gt;</span> scriptCompiled;
+            <span class="fn-native">// Store code evaluation in scriptResult</span>
+            <span class="fn">Local&lt;Value&gt;</span> scriptResult;
+            <span class="fn-native">// Origin Policy Script</span>
+            <span class="fn">ScriptOrigin</span> originScript();
+            ...
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          <span class="fn-native">string</span> <span class="fn">evaluateCode</span>(<span class="fn">Local&lt;Context&gt;</span> runtime, <span class="fn-native">string</span> sourceCode) {
+
+            if (!<span class="fn">Script::Compile</span>(runtime, sourceCode, &originScript).<span class="fn">ToLocal</span>(&scriptCompiled)) {
+              <span class="fn-native">// Print errors that happened during compilation.</span>
+              <span class="fn">ReportException</span>(runtime-><span class="fn">GetIsolate</span>(), &try_catch);
+              <span class="fn-name">return</span> undefined;
+            }
+            <span class="fn-native">// It compiled!</span>
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          <span class="fn-native">string</span> <span class="fn">evaluateCode</span>(<span class="fn">Local&lt;Context&gt;</span> runtime, <span class="fn-native">string</span> sourceCode) {
+            ...
+            <span class="fn-native">// It compiled!</span>
+            if (!scriptCompiled-><span class="fn">Run</span>(runtime).<span class="fn">ToLocal</span>(&scriptResult)) {
+              <span class="fn-native">// Print errors that happened during execution.</span>
+              <span class="fn">ReportException</span>(runtime-><span class="fn">GetIsolate</span>(), &try_catch);
+              <span class="fn-name">return</span> undefined;
+            }
+            <span class="fn-native">// It executed!</span>
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
+      <p class="title">Javascript RuneTime</p>
+      <pre class="small">
+        <code>
+          <span class="fn-native">string</span> <span class="fn">evaluateCode</span>(<span class="fn">Local&lt;Context&gt;</span> runtime, <span class="fn-native">string</span> sourceCode) {
+            ...
+            <span class="fn-native">// It compiled!</span>
+            ...
+            <span class="fn-native">// It executed!</span>
+            if (!scriptResult-><span class="fn">IsUndefined</span>()) {
+              <span class="fn-native">// If all went well and the result wasn't undefined then return it</span>
+              <span class="fn-name">return</span> scriptResult;
+            }
+          }
+        </code>
+      </pre>
+    </section>
+    <section class="slide not-visible">
       <p class="title">Javascript RuneTime</p>
       <p class="section"></p>
       <p class="section">The container</p>
@@ -57,7 +258,7 @@
         <img src="container.png" alt="container">
       </div>
     </section>
-    <section class="slide not-visible" data-id="5">
+    <section class="slide not-visible">
       <p class="title">Javascript RuneTime</p>
       <p class="section"></p>
       <p class="section">The DOM api requires a rendering logic ...</p>
@@ -65,7 +266,7 @@
         <img src="container_dom.png" alt="container">
       </div>
     </section>
-    <section class="slide not-visible" data-id="6">
+    <section class="slide not-visible">
       <p class="title">Javascript RuneTime</p>
       <p class="section"></p>
       <p class="section">XMLHTTPRequest api requires a non blocking logic ...</p>
@@ -73,7 +274,7 @@
         <img src="container_blocking.png" alt="container">
       </div>
     </section>
-    <section class="slide not-visible" data-id="7">
+    <section class="slide not-visible">
       <p class="title">Javascript RuneTime</p>
       <p class="section"></p>
       <p class="section">... STILL TASTING IT ?...</p>
@@ -82,7 +283,7 @@
       </div>
       <!-- <p class="section">Let's run some examples</p> -->
     </section>
-    <section class="slide not-visible" data-id="8">
+    <section class="slide not-visible">
       <p class="title">Javascript RuneTime</p>
       <pre><code>      <span class="fn">function</span> <span class="fn-name">hello</span>(){ <span class="fn">return</span> <span class="str">"Hello"</span>; }
       <span class="fn">function</span> <span class="fn-name">world</span>(){ <span class="fn">return</span> <span class="str">"World"</span>; }
@@ -92,7 +293,7 @@
       </pre>
       <a class="link" target="_blank" href="examples/demo1.html">Call Stack Demo</a>
     </section>
-    <section class="slide not-visible" data-id="9">
+    <section class="slide not-visible" >
       <p class="title">Javascript RuneTime</p>
       <pre><code>      <span class="fn">function</span> <span class="fn-name">hello</span>(){ <span class="fn">return</span> <span class="str">"Hello"</span>; }
       <span class="fn">function</span> <span class="fn-name">world</span>(){ <span class="fn">return</span> <span class="str">"World"</span>; }
@@ -103,7 +304,7 @@
       </pre>
       <a class="link" target="_blank" href="examples/demo2.html">Blocking Demo</a>
     </section>
-    <section class="slide not-visible" data-id="10">
+    <section class="slide not-visible" >
       <p class="title">Javascript RuneTime</p>
       <pre><code>      <span class="fn">function</span> <span class="fn-name">hello</span>(){ <span class="fn">return</span> <span class="str">"Hello"</span>; }
       <span class="fn">function</span> <span class="fn-name">world</span>(){ <span class="fn">return</span> <span class="str">"World"</span>; }
@@ -114,7 +315,7 @@
         </pre>
       <a class="link" target="_blank" href="examples/demo3.html">Non Blocking Demo</a>
     </section>
-    <section class="slide not-visible" data-id="11">
+    <section class="slide not-visible" >
       <p class="title-anim">
         <span class="pre-rotate">Javascript Run</span>
         <span class="rotate-prev">e</span>
@@ -124,7 +325,7 @@
       </p>
       <p class="section"></p>
     </section>
-    <section class="slide not-visible" data-id="12">
+    <section class="slide not-visible" >
       <p class="title">Javascript RunTime</p>
       <p class="section"></p>
       <p class="section">La magia consiste en entenderlo. El milagro, en hacerlo.</p>
@@ -251,7 +452,7 @@
         	this.x = Math.random() * W;
         	this.y = Math.random() * H;
         	this.radius = 6;
-        	this.r = Math.floor(Math.random() * 255) + 100;  
+        	this.r = Math.floor(Math.random() * 255) + 100;
         	this.g = 0;
         	this.b = 0;
 
@@ -335,7 +536,12 @@
 
         if(ENABLE_POINTER)animloop();
       }
-      window.onload = initCanvas;
+      function init(){
+        const slides = document.querySelectorAll('.slide');
+        Array.from(slides).forEach((slide, i) => slide.dataset.id = i);
+        initCanvas();
+      }
+      window.onload = init;
     </script>
   </body>
 </html>

@@ -89,6 +89,9 @@ pre {
   margin-top: 15px;
   margin-bottom: 0;
 }
+pre.small {
+  font-size: 27px;
+}
 pre code{
   vertical-align: -webkit-baseline-middle;
 }
