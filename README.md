@@ -20,6 +20,16 @@ Teaching is a great, transforming experience we should all try at least once in 
 
   Length: 35 minutes aprox. (no QA included)
 
+## Super-Monad-Purilistico-Functionalidoso
+
+  A gentle introduction to functional programming from a more "philosophical" point of view.
+
+  Slides: http://zuri.website/talks/functional_programming/talk1/
+
+  Level: Easy
+
+  Length: 25 minutes aprox. (no QA included)
+
 ## Getting Started With Language-Oriented Programming
 
 Data is probably the most valuable and requested asset all over the world. We humans are eager to consume it and are constantly looking for ever-complex, accurate, specific data sets to increase our knowledge stock and keep it up to date. Whether application logs aggregation analysis, trading market rates comparison or simply the weather forecast analysis, general-purpose languages cannot fully provide users with the best tools for interacting, retrieving and solving domain related problems within the context a domain expert would expect to. We will drive a general introduction to this topic during the first part and will get into the job by designing and implementing a nice case example domain specific language for fetching Github issues in the second part.
