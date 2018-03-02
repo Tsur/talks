@@ -8,7 +8,7 @@ Teaching is a great, transforming experience we should all try at least once in 
 
   Keep by my side in this magical journey where we will go from the JavaScript RuneTime to the JavaScript Runtime and will unveil its magic !
 
-  Slides: http://zuri.website/talks/js_runtime/1_js_runetime/
+  Slides: http://zuri.rocks/talks/js_runtime/1_js_runetime/
 
   Text: https://github.com/Tsur/talks/blob/master/js_runtime/1_js_runetime/transcript.md
 
@@ -24,7 +24,7 @@ Teaching is a great, transforming experience we should all try at least once in 
 
   A gentle introduction to functional programming from a more "philosophical" point of view.
 
-  Slides: http://zuri.website/talks/functional_programming/talk1/
+  Slides: http://zuri.rocks/talks/functional_programming/talk1/
 
   Level: Easy
 
@@ -34,11 +34,11 @@ Teaching is a great, transforming experience we should all try at least once in 
 
 Data is probably the most valuable and requested asset all over the world. We humans are eager to consume it and are constantly looking for ever-complex, accurate, specific data sets to increase our knowledge stock and keep it up to date. Whether application logs aggregation analysis, trading market rates comparison or simply the weather forecast analysis, general-purpose languages cannot fully provide users with the best tools for interacting, retrieving and solving domain related problems within the context a domain expert would expect to. We will drive a general introduction to this topic during the first part and will get into the job by designing and implementing a nice case example domain specific language for fetching Github issues in the second part.
 
-Slides: http://zuri.website/talks/language-oriented-programming
+Slides: http://zuri.rocks/talks/language-oriented-programming
 
 Text: https://github.com/Tsur/talks/blob/master/language-oriented-programming/transcript.md
 
-Demos: http://zuri.website/octoql
+Demos: http://zuri.rocks/octoql
 
 Resources: https://github.com/Tsur/talks/tree/master/language-oriented-programming
 
